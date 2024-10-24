@@ -18,3 +18,4 @@ dependencies:
   - pip:
       - mlflow==2.6.0
       - kagglehub==1.0.0
+      - piptools

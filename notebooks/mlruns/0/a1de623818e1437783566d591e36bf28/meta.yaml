@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/HEC/Course%205%20-%20MLOPS%20with%20Artefact/Project/xhec-mlops-project-student/notebooks/mlruns/0/a1de623818e1437783566d591e36bf28/artifacts
+end_time: 1729775059132
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a1de623818e1437783566d591e36bf28
+run_name: XGBoost Regressor Experiment
+run_uuid: a1de623818e1437783566d591e36bf28
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1729775052927
+status: 3
+tags: []
+user_id: user

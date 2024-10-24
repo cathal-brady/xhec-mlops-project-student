@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/HEC/Course%205%20-%20MLOPS%20with%20Artefact/Project/xhec-mlops-project-student/notebooks/mlruns/0/ef88d6099655471aaefa552ae4d92045/artifacts
+end_time: 1729775107337
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ef88d6099655471aaefa552ae4d92045
+run_name: ElasticNet Regressor Experiment
+run_uuid: ef88d6099655471aaefa552ae4d92045
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1729775101619
+status: 3
+tags: []
+user_id: user

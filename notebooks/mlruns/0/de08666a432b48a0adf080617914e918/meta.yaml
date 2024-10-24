@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/HEC/Course%205%20-%20MLOPS%20with%20Artefact/Project/xhec-mlops-project-student/notebooks/mlruns/0/de08666a432b48a0adf080617914e918/artifacts
+end_time: 1729775052884
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: de08666a432b48a0adf080617914e918
+run_name: Linear Regression Experiment
+run_uuid: de08666a432b48a0adf080617914e918
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1729775046621
+status: 3
+tags: []
+user_id: user

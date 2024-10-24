@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div align="center">
 
 # xhec-mlops-project-student
@@ -22,122 +23,143 @@ The age of abalone is determined by cutting the shell through the cone, staining
 You can download the dataset on the [Kaggle page](https://www.kaggle.com/datasets/rodolfomendes/abalone-dataset)
 
 </details>
+=======
+# Abalone Age Prediction - MLOps Project
+>>>>>>> f4f1029428dd2a4e1bd2a385820527d6f55f2aea
 
 ## Table of Contents
+1. [Project Context](#1-project-context)
+2. [Participants](#2-participants)
+3. [Steps to Recreate the Python Environment](#3-steps-to-recreate-the-python-environment)
+    - [Prerequisites](#prerequisites)
+    - [Clone the Repository](#1-clone-the-repository)
+    - [Set Up the Virtual Environment](#2-set-up-the-virtual-environment)
+    - [Install Dependencies](#3-install-dependencies)
+    - [Set Up Pre-commit Hooks](#4-set-up-pre-commit-hooks)
+4. [Instructions to Run the Code](#4-instructions-to-run-the-code)
+5. [Additional Notes](#additional-notes)
 
-- [xhec-mlops-project-student](#xhec-mlops-project-student)
-  - [Table of Contents](#table-of-contents)
-  - [Deliverables and Evaluation](#deliverables-and-evaluation)
-    - [Deliverables](#deliverables)
-    - [Evaluation](#evaluation)
-  - [Steps to reproduce to build the deliverable](#steps-to-reproduce-to-build-the-deliverable)
-    - [Pull requests in this project](#pull-requests-in-this-project)
-    - [Tips to work on this project](#tips-to-work-on-this-project)
+## 1. Project Context
 
-## Deliverables and notation
+This is a group project for MLOps class based on [this repository](https://github.com/artefactory/xhec-mlops-project-student) and [this Kaggle challenge](https://www.kaggle.com/datasets/rodolfomendes/abalone-dataset). The objective of this repository is the industrialization of an Abalone Age Prediction model(please find data on Kaggle).
 
-### Deliverables
+The Abalone age prediction involves predicting the age of abalone based on physical measurements such as shell weight, diameter, and others. The actual age of an abalone is determined by counting rings on its shell, a tedious and time-consuming process. The model's goal is to replace this manual task by predicting the "Rings" column using other available measurements.
 
-The deliverable of this project is a copy of this repository with the industrialization of the Abalone age prediction model. We expect to see: 
+This repository contains all the components required to automate the machine learning pipeline for training, inference, and deployment of the Abalone age prediction model.
 
-1. a workflow to train a model using Prefect
-- The workflows to train the model and to make the inference (prediction of the age of abalone) are in separate modules and use Prefect `flow` and `task` objects
-- The code to get the trained model and encoder is in a separate module and must be reproducible (not necessarily in a docker container)
-2. a Prefect deployment to retrain the model regularly
-3. an API that runs on a local app and that allows users to make predictions on new data
-  - A working API which can be used to make predictions on new data
-    - The API can run on a docker container
-    - The API has validation on input data (use Pydantic)
+### Key Features of the Repository:
+- **Model Training and Inference Workflow**: We use Prefect to manage the workflows for both training the model and making predictions. The workflows are modularized into separate tasks and flows, making it easier to manage and maintain.
+- **Automated Retraining**: A Prefect deployment is set up to regularly retrain the model, ensuring it stays up to date as new data becomes available.g
+- **API Deployment**: The repository contains an API built using FastAPI that allows users to submit new data and receive real-time age predictions for abalone. The API is integrated with Pydantic for input validation.
+- **Pre-commit Hooks for Code Quality**: The repository uses `black`, `isort`, and `ruff` to ensure clean, consistent code formatting and linting, enforced by pre-commit hooks.
 
-### Evaluation
+### By following the instructions in this README, you'll be able to:
+- **Recreate the development environment** used for the project.
+- **Train and retrain the model using Prefect**.
+- **Deploy an API** that serves predictions based on new input data.
+- Ensure that the code adheres to the coding standards and practices set by the project.
 
-Each of your pull requests will be graded based on the following criteria:
+---
 
-- **Clarity** and quality of code
-  - good module structure
-  - naming conventions
-  - use of docstrings and type hinting
-- **Formatting**
-  - respect of clear code conventions
-  
-  *P.S. you can use a linter and automatic code formatters to help you with that*
+## 2. Participants
 
-- Proper **Functioning** of the code
-  - the code must run without bugs
+- **Hadrien Strichard** - [hadrienstrichard](https://github.com/hadrienstrichard)
+- **Hocine Zidi** - [Hozidi](https://github.com/Hozidi)
+- **Jean-Eudes Agbre** - [JokyHub](https://github.com/JokyHub)
+- **Tarek Massoud** - [tarekmassoud](https://github.com/tarekmassoud)
+- **Cathal Brady** - [cathal-brady](https://github.com/cathal-brady)
 
-Bseides the evaluation of the pull requests, we will also evaluate: 
-- **Reproducibility** and clarity of instructions to run the code (we will actually try to run your code)
-  - Having a clear README.md with 
-    - the context of the project
-    - the name of the participants and their github users
-    - the steps to recreate the Python environment
-    - the instructions to run all parts of the code
-- Use of *Pull Requests* (see below) to coordinate your collaboration 
+---
 
-## Steps to reproduce to build the deliverable
+## 3. Steps to Recreate the Python Environment
 
-To help you with the structure and order of steps to perform in this project, we created different pull requests templates. 
-Each branch in this repository corresponds to a future pull request and has an attached markdown file with the instructions to perform the tasks of the pull request.
-Each branch starts with a number.
-You can follow the order of the branches to build your project and collaborate.
+### Prerequisites
 
-> [!NOTE]
-> There are "TODO" in the code of the different branches. Each "TODO" corresponds to a task to perform to build the project.
-> [!IMPORTANT]
-> Remember to remove all code that is not used before the end of the project (including all TODO tags in the code).
+Ensure you have the following installed on your machine:
 
-**Please follow these steps**:
+[![Python 3.11](https://img.shields.io/badge/Python-3.11-blue)](https://www.python.org/downloads/release/python-3110/)
+[![Git](https://img.shields.io/badge/Git-Installed-green)](https://git-scm.com/downloads)
 
-- If not done already, create a GitHub account
-- If not done already, create a [Kaggle account](https://www.kaggle.com/account/login?phase=startRegisterTab&returnUrl=%2F) (so you can download the dataset)
-- Fork this repository (one person per group)
+You'll also need either `virtualenv` or `conda` installed to create a virtual environment.
 
-**WARNING**: make sure to **unselect** the option "Copy the `master` branch only", so you have all the branches in the forked repository.
+### 1. Clone the Repository
 
-- Add the different members of your group as admin to your forked repository
-- Follow the order of the numbered branches and for each branch:
-  - Read the PR_i.md (where i is the number of the branch) file to understand the task to perform
-   > [!NOTE]
-   > Dont forget to integrate your work from past branches (except for when working on branch #1 obviously (!))
-   > ```bash
-   > git checkout branch_number_i
-   > git pull origin master
-   > # At this point, you might have a VIM window opening, you can close it using the command ":wq" 
-   > git push
-   > ```
-    - Do as many commits as necessary on the branch_number_i to perform the task indicated in the corresponding markdown file
-    - Open a pull request from this branch to the main branch of your forked repository
-    - Once done, merge the pull request in the main branch of your forked repository
+Start by cloning the repository to your local machine:
 
-### Pull requests in this project
+```bash
+git clone https://github.com/cathal-brady/xhec-mlops-project-student.git
+cd xhec-mlops-project-student
+```
 
-Github [Pull Requests](https://docs.github.com/articles/about-pull-requests) are a way to propose changes to a repository. They have for purpose to integrate the work of *feature branches* into the main branch of the repository, with a collaborative review process.
+### 2. Set Up the Virtual Environment
 
-**PR tips:**
+**Using Conda**
 
-Make sure that you select your own repository when selecting the base repository:
+If you have Conda installed, you can use the environment.yml file to recreate the environment:
 
-![PR Wrong](assets/PR_wrong.png)
+```bash
+# Create the environment using conda
+conda env create --file environment.yml
 
-It should rather look like this:
+# Activate the environment
+conda activate abaloneenv
+```
 
-![PR Right](assets/PR_right.png)
+**Using Virtualenv**
 
-### Tips to work on this project
+If you prefer using virtualenv, follow these steps:
 
-- Use a virtual environment to install the dependencies of the project (conda or virtualenv for instance)
+```bash
+# Install virtualenv if you don't have it already
+pip install virtualenv
 
-- Once your virtual environment is activated, install pre-commit hooks to automatically format your code before each commit:
+# Create the virtual environment
+virtualenv abaloneenv --python=python3.11
+
+# Activate the environment
+source abaloneenv/bin/activate  # For MacOS/Linux
+abaloneenv\Scripts\activate     # For Windows
+```
+
+### 3. Install dependencies
+
+Once the environment is activated, install the dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+If you need to install development tools like black, flake8, and isort, run:
+
+```bash
+pip install -r requirements-dev.txt
+```
+
+To ensure code quality and formatting before each commit, install the pre-commit hooks:
 
 ```bash
 pip install pre-commit
 pre-commit install
 ```
+This ensures that every time you make a commit, code formatters and linters (like black, isort, and flake8) will be applied automatically.
 
-This will guarantee that your code is formatted correctly and of good quality before each commit.
+---
 
-- Use a `requirements.in` file to list the dependencies of your project. You can use the following command to generate a `requirements.txt` file from a `requirements.in` file:
+## 4. Instructions to Run the Code
+
+---
+
+## Additional notes
+
+- If any dependencies are updated in the requirements.in or requirements-dev.in files, make sure to regenerate the .txt files using pip-compile:
 
 ```bash
 pip-compile requirements.in
+pip-compile requirements-dev.in
+```
+
+- If any dependencies are updated in the requirements.in or requirements-dev.in files, make sure to regenerate the .txt files using pip-compile:
+
+```bash
+pip-compile requirements.in
+pip-compile requirements-dev.in
 ```

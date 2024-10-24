@@ -131,52 +131,44 @@ python main.py
 
 This will download the data from Kaggle, preprocess it, train the model using the Ridge regression algorithm, and save the model and the scaler for future predictions.
 
-### 2. Run Predictions
-
-To make predictions with new data, execute the following:
-
-```bash
-cd src/modelling #if not already in this directory
-python predicting.py
-```
-
-This will load the trained model and scaler and use them to predict the age of abalone based on new input data.
-
-### 3. Schedule Regular Retraining with Prefect
+### 2. Schedule Regular Retraining with Prefect
 We have set up a Prefect deployment to retrain the model regularly. To start the worker that will handle the scheduled retraining jobs:
 
-#### 1. Start the Prefect Worker:
-Open a new terminal and run:
+**How to run the prefect deployment**
 
-```bash
-prefect worker start --pool 'MLOps'
-```
+1. Start the Prefect Worker:
+    Open a new terminal and run:
 
-This worker will pick up scheduled jobs for model retraining.
+    ```bash
+    prefect worker start --pool 'MLOps'
+    ```
 
-#### 2. Run the Prefect UI:
-To monitor flow runs, visualize tasks, and check logs, you can start the Prefect UI:
+    This worker will pick up scheduled jobs for model retraining.
 
-```bash
-prefect orion start
-```
+2. Run the Prefect UI:
+    To monitor flow runs, visualize tasks, and check logs, you can start the Prefect UI:
 
-Then, open your browser and go to http://127.0.0.1:4200 to see the Prefect dashboard.
+    ```bash
+    prefect orion start
+    ```
 
-#### 3. Trigger a Manual Run (Optional):
-To manually trigger a flow run for retraining, use the following command:
+    Then, open your browser and go to http://127.0.0.1:4200 to see the Prefect dashboard.
+    (Port 4200 has been used)
 
-```bash
-prefect deployment run 'main/default'
-```
+3. Trigger a Manual Run (Optional):
+    To manually trigger a flow run for retraining, use the following command:
 
-This command will execute the retraining flow immediately.
+    ```bash
+    prefect deployment run 'main/default'
+    ```
+
+    This command will execute the retraining flow immediately.
 
 ---
 
 ## Additional notes
 
-- If any dependencies are updated in the requirements.in or requirements-dev.in files, make sure to regenerate the .txt files using pip-compile:
+- If any dependencies are updated in the requirements.in or requirements-dev.in files, make sure to regenerate their associated .txt files using pip-compile:
 
 ```bash
 pip-compile requirements.in
@@ -185,6 +177,10 @@ pip-compile requirements-dev.in
 
 - You can monitor the flow executions, schedules, and deployments through the Prefect UI as mentioned above.
 - To redeploy the model or make updates, you can use the deployment configuration saved in the prefect.yaml file for faster deployments
+
 ```bash
 prefect deploy -n default
 ```
+
+## 4. Our FastAPI
+Integrate Prefect with FastAPI to orchestrate and manage workflows triggered by HTTP requests for efficient data processing and task automation.

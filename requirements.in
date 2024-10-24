@@ -10,3 +10,4 @@ matplotlib>=3.7
 seaborn>=0.12.2
 kagglehub==0.3.3
 joblib==1.2.0
+uvicorn==0.23.2

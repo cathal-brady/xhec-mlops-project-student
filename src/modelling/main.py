@@ -2,7 +2,7 @@ import os
 
 import kagglehub  # Ensure this is correctly imported
 import pandas as pd
-from prefect import flow, task  # Use `flow` decorator for flow definition
+from prefect import flow, task  # Use flow decorator for flow definition
 from preprocessing import preprocess_data
 from sklearn.linear_model import Ridge
 from utils import save_model, save_object
@@ -39,7 +39,7 @@ def save_model_task(model: Ridge, scaler):
     save_object(scaler, "scaler.pkl")
 
 
-@flow  # Use the `flow` decorator for defining the flow
+@flow  # Use the flow decorator for defining the flow
 def main() -> None:
     """Train a model using the data downloaded from Kaggle
     and save the model."""
@@ -50,5 +50,5 @@ def main() -> None:
     save_model_task(model, scaler)
 
 
-if __name__ == "__main__":
+if __name__ == "_main_":
     main()

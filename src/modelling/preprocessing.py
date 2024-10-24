@@ -1,8 +1,7 @@
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
-
-def preprocess_data(df: pd.DataFrame) -> tuple:
+def preprocess_data(df: pd.DataFrame):
     """
     Preprocess the dataset by one-hot encoding the 'Sex' column,
     scaling the features, and separating the target variable.

@@ -165,6 +165,86 @@ We have set up a Prefect deployment to retrain the model regularly. To start the
     This command will execute the retraining flow immediately.
 
 ---
+#### 4. FastAPI API Documentation
+The FastAPI API is used to serve predictions for abalone age based on physical characteristics. The API accepts JSON input, processes the data using the trained machine learning model, and returns a predicted age.
+
+##### 4.1 API Setup
+###### Step 1: Running FastAPI Locally
+To run the API locally:
+
+```bash
+uvicorn src.web_service.main:app --reload
+```
+
+This will start the FastAPI server on http://127.0.0.1:8000.
+
+###### Step 2: API Endpoints
+Root Endpoint
+
+URL: /
+Method: GET
+Description: Returns a welcome message confirming the API is running.
+Prediction Endpoint
+
+URL: /predict
+Method: POST
+Description: Accepts JSON input and returns the predicted age.
+Input Format:
+
+```bash
+{
+  "length": 0.62,
+  "diameter": 0.48,
+  "height": 0.14,
+  "whole_weight": 0.85,
+  "shucked_weight": 0.36,
+  "viscera_weight": 0.29,
+  "shell_weight": 0.22,
+  "sex": "M"  
+}
+```
+
+Output Example:
+
+```bash
+{
+  "predicted_age": 10
+}
+```
+
+###### Step 3: Accessing API Documentation
+FastAPI automatically generates interactive API documentation. You can explore the API at:
+
+- Swagger UI: http://127.0.0.1:8000/docs
+- OpenAPI schema: http://127.0.0.1:8000/openapi.json
+This allows you to test the API directly in your browser.
+
+##### 4.2 Dockerizing FastAPI
+###### Step 1: Build Docker Image
+To containerize the FastAPI service:
+
+Ensure Dockerfile.app is correctly set up.
+Build the Docker image:
+
+```bash
+docker build -t my_mlflow_fastapi_project -f Dockerfile.app .
+```
+
+###### Step 2: Run Docker Container
+Run the container with:
+
+```bash
+docker run -p 8000:8000 my_mlflow_fastapi_project
+```
+
+This will expose the API at http://localhost:8000.
+
+###### Step 3: Access the API
+Once the container is running, you can access the API at:
+
+- http://localhost:8000
+- Interactive docs at: http://localhost:8000/docs
+---
 
 ## Additional notes
 

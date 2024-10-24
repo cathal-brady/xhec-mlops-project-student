@@ -31,6 +31,16 @@ $ pip install virtualenv
 $ virtualenv abaloneenv --python=python3.11
 ```
 
+If you have miniconda installed you can also do it using conda
+```bash
+# Create env
+$ cd <this repository>
+$ conda env create --file environment.yml
+
+# Activate your environment:
+$ conda activate abaloneenv
+```
+
 This is a virtual environment specifically for our abalone prediction
 
 activate the environment using

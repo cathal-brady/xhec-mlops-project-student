@@ -149,11 +149,11 @@ We have set up a Prefect deployment to retrain the model regularly. To start the
     To monitor flow runs, visualize tasks, and check logs, you can start the Prefect UI:
 
     ```bash
-    prefect orion start
+    prefect server start
     ```
 
     Then, open your browser and go to http://127.0.0.1:4200 to see the Prefect dashboard.
-    (Port 4200 has been used)
+    (Port 4200 has been used - this is the default port)
 
 3. Trigger a Manual Run (Optional):
     To manually trigger a flow run for retraining, use the following command:
@@ -181,6 +181,3 @@ pip-compile requirements-dev.in
 ```bash
 prefect deploy -n default
 ```
-
-## 4. Our FastAPI
-Integrate Prefect with FastAPI to orchestrate and manage workflows triggered by HTTP requests for efficient data processing and task automation.

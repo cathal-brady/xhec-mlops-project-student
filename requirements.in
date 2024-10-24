@@ -6,6 +6,7 @@ pandas>=1.5.3
 numpy>=1.23.0
 mlflow==2.6.0
 xgboost==1.7.3
-matplotlib>=3.7.1
+matplotlib>=3.7
 seaborn>=0.12.2
 kagglehub==0.3.3
+joblib==1.2.0

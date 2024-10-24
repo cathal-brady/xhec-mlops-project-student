@@ -143,8 +143,10 @@ jinja2==3.1.4
     #   flask
     #   mlflow
     #   prefect
-joblib==1.4.2
-    # via scikit-learn
+joblib==1.2.0
+    # via
+    #   -r .\requirements.in
+    #   scikit-learn
 jsonpatch==1.33
     # via prefect
 jsonpointer==3.0.0

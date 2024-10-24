@@ -1,67 +1,111 @@
-# Setting up the virtual environment and installing dependencies
+# Abalone Age Prediction - MLOps Project
 
-## Overview
-This branch concerns building the virtual environment and installing dependencies, as well as ensuring later code will meet some code quality conventions.
+## 1. Project Context
 
-## Prerequisites
-To get started, you will need the following installed on your machine:
+The Abalone age prediction model aims to predict the age of abalone based on physical measurements. This project involves the industrialization of the Abalone age prediction model, ensuring that the model can be trained, retrained, and deployed in a production environment using modern MLOps practices such as workflow automation, version control, and CI/CD.
+
+The goal is to build a robust pipeline for:
+- Training the machine learning model.
+- Making predictions on new data.
+- Retraining the model on a regular schedule.
+- Exposing the model via an API for real-time predictions.
+
+The following sections outline how to set up the environment and run the code necessary to reproduce the entire pipeline.
+
+---
+
+## 2. Participants
+
+- **Hadrien Strichard** - [hadrienstrichard](https://github.com/hadrienstrichard)
+- **Hocine Zidi** - [Hozidi](https://github.com/Hozidi)
+- **Jean-Eudes Agbre** - [JokyHub](https://github.com/JokyHub)
+- **Tarek Massoud** - [tarekmassoud](https://github.com/tarekmassoud)
+- **Cathal Brady** - [cathal-brady](https://github.com/cathal-brady)
+
+---
+
+## 3. Steps to Recreate the Python Environment
+
+### Prerequisites
+
+Ensure you have the following installed on your machine:
 
 [![Python 3.11](https://img.shields.io/badge/Python-3.11-blue)](https://www.python.org/downloads/release/python-3110/)
 [![Git](https://img.shields.io/badge/Git-Installed-green)](https://git-scm.com/downloads)
 
-## Setup Instructions
+You'll also need either `virtualenv` or `conda` installed to create a virtual environment.
 
 ### 1. Clone the Repository
-Begin by cloning the repository to your local machine:
+
+Start by cloning the repository to your local machine:
 
 ```bash
 git clone https://github.com/cathal-brady/xhec-mlops-project-student.git
-cd path/to/wherever/you/cloned/this/repo
+cd xhec-mlops-project-student
 ```
 
-### 2. Set up a virtual environment
+### 2. Set Up the Virtual Environment
 
-We did this using virtualenv
-If you dont have virtualenv you can install it as below
+**Using Conda**
+
+If you have Conda installed, you can use the environment.yml file to recreate the environment:
+
 ```bash
-# Install virtualenv package
-$ pip install virtualenv
+# Create the environment using conda
+conda env create --file environment.yml
+
+# Activate the environment
+conda activate abaloneenv
+```
+
+**Using Virtualenv**
+
+If you prefer using virtualenv, follow these steps:
+
+```bash
+# Install virtualenv if you don't have it already
+pip install virtualenv
 
 # Create the virtual environment
-$ virtualenv abaloneenv --python=python3.11
+virtualenv abaloneenv --python=python3.11
+
+# Activate the environment
+source abaloneenv/bin/activate  # For MacOS/Linux
+abaloneenv\Scripts\activate     # For Windows
 ```
 
-If you have miniconda installed you can also do it using conda
+### 3. Install dependencies
+
+Once the environment is activated, install the dependencies:
+
 ```bash
-# Create env
-$ cd <this repository>
-$ conda env create --file environment.yml
+pip install -r requirements.txt
+```
+If you need to install development tools like black, flake8, and isort, run:
 
-# Activate your environment:
-$ conda activate abaloneenv
+```bash
+pip install -r requirements-dev.txt
 ```
 
-This is a virtual environment specifically for our abalone prediction
+To ensure code quality and formatting before each commit, install the pre-commit hooks:
 
-activate the environment using
-
-<code>abaloneenv\Scripts\activate</code> (Windows)
-<code>source abaloneenv/bin/activate</code> (on MacOS/Linux)
-
-Install the dependencies we have laid out in the requirements file
-<code>pip install -r requirements.txt</code>
-
-Configure pre-commit hooks by running
+```bash
 pip install pre-commit
 pre-commit install
+```
+This ensures that every time you make a commit, code formatters and linters (like black, isort, and flake8) will be applied automatically.
 
+---
 
-This ensures All code in this repository must adhere to the following conventions:
+## 4. Instructions to Run the Code
 
-    flake8: For linting and enforcing coding style.
-    isort: For sorting imports to keep code organized.
-    black: For automatic code formatting to maintain cons
+---
 
-Which are laid out in our requirements dev-in files (see <code>requirements-dev.in</code> for a summary)
+## Additional notes
 
-By following these steps, you will have a well-configured development environment ready for contributing to this project. If you encounter any issues or have questions, please refer to the documentation for the respective tools or reach out for assistance.
+- If any dependencies are updated in the requirements.in or requirements-dev.in files, make sure to regenerate the .txt files using pip-compile:
+
+```bash
+pip-compile requirements.in
+pip-compile requirements-dev.in
+```

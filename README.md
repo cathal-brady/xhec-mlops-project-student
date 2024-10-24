@@ -1,5 +1,4 @@
 # Abalone Age Prediction - MLOps Project
->>>>>>> f4f1029428dd2a4e1bd2a385820527d6f55f2aea
 
 ## Table of Contents
 1. [Project Context](#1-project-context)

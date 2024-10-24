@@ -72,6 +72,7 @@ projectmlops/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+abalone-mlops
 
 # Pyre type checker
 .pyre/

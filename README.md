@@ -10,7 +10,8 @@
     - [Install Dependencies](#3-install-dependencies)
     - [Set Up Pre-commit Hooks](#4-set-up-pre-commit-hooks)
 4. [Instructions to Run the Code](#4-instructions-to-run-the-code)
-5. [Additional Notes](#additional-notes)
+5. [FastAPI API Dpcumentation](#5-FastAPI-API-Documentation)
+6. [Additional Notes](#additional-notes)
 
 ## 1. Project Context
 
@@ -165,10 +166,10 @@ We have set up a Prefect deployment to retrain the model regularly. To start the
     This command will execute the retraining flow immediately.
 
 ---
-#### 4. FastAPI API Documentation
+#### 5. FastAPI API Documentation
 The FastAPI API is used to serve predictions for abalone age based on physical characteristics. The API accepts JSON input, processes the data using the trained machine learning model, and returns a predicted age.
 
-##### 4.1 API Setup
+##### 5.1 API Setup
 ###### Step 1: Running FastAPI Locally
 To run the API locally:
 
@@ -219,7 +220,7 @@ FastAPI automatically generates interactive API documentation. You can explore t
 - OpenAPI schema: http://127.0.0.1:8000/openapi.json
 This allows you to test the API directly in your browser.
 
-##### 4.2 Dockerizing FastAPI
+##### 5.2 Dockerizing FastAPI
 ###### Step 1: Build Docker Image
 To containerize the FastAPI service:
 

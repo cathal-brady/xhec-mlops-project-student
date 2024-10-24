@@ -67,7 +67,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-
+projectmlops/
 # mypy
 .mypy_cache/
 .dmypy.json

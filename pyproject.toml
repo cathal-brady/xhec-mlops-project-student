@@ -6,8 +6,8 @@ build-backend = "setuptools.build_meta"
 name = "xhec-mlops-project-student"
 authors = [
   { name = "hadrienstrichard", email = "hadrienstrichard@gmail.com" },
-  { name = "Hozidi", email = "hozidi@email.com" },
-  { name = "JokyHub", email = "eudes.agbre@email.com" },
+  { name = "Hozidi", email = "hozidi@gmail.com" },
+  { name = "JokyHub", email = "eudes.agbre@gmail.com" },
   { name = "tarekmassoud", email = "t.massoud@hotmail.com" },
   { name = "cathal-brady", email = "cathalbrady@polytechnique.edu" }
 ]

@@ -1,11 +1,11 @@
 import pickle
-
 import mlflow
 
 
-def save_model(model, model_name):
+def save_model(model, model_name: str) -> None:
     """
     Save the model to MLflow.
+    
     Args:
         model: The trained model object.
         model_name (str): The name of the model to be saved.
@@ -13,11 +13,13 @@ def save_model(model, model_name):
     mlflow.sklearn.log_model(model, model_name)
 
 
-def load_model(model_name):
+def load_model(model_name: str):
     """
     Load the model from MLflow.
+    
     Args:
         model_name (str): The name of the model to be loaded.
+        
     Returns:
         model: The loaded model.
     """
@@ -25,9 +27,10 @@ def load_model(model_name):
     return mlflow.sklearn.load_model(model_uri)
 
 
-def save_object(obj, filename):
+def save_object(obj, filename: str) -> None:
     """
     Save an object like a scaler to a file using pickle.
+    
     Args:
         obj: The object to be saved.
         filename (str): The name of the file to save the object.
@@ -36,11 +39,13 @@ def save_object(obj, filename):
         pickle.dump(obj, f)
 
 
-def load_object(filename):
+def load_object(filename: str):
     """
     Load an object from a file using pickle.
+    
     Args:
         filename (str): The name of the file to load the object from.
+        
     Returns:
         object: The loaded object.
     """

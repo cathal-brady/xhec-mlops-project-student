@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/35387/Documents/HEC/MLOPS/xhec-mlops-project-student/src/modelling/mlruns/0/28488384792646ecb6065a4b0b059ba4/artifacts
+end_time: 1729788781104
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 28488384792646ecb6065a4b0b059ba4
+run_name: illustrious-sow-360
+run_uuid: 28488384792646ecb6065a4b0b059ba4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1729788774735
+status: 3
+tags: []
+user_id: '35387'

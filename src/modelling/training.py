@@ -3,14 +3,11 @@ import kagglehub
 import pandas as pd
 from utils import save_model, save_object
 from preprocessing import preprocess_data
-from prefect import Flow, task
+from prefect import task, Flow
 from sklearn.linear_model import Ridge
 
-
-# Define the Prefect tasks
 @task
 def load_data():
-    """Download and load the Abalone dataset."""
     path = kagglehub.dataset_download("rodolfomendes/abalone-dataset")
     csv_path = os.path.join(path, "abalone.csv")
     df = pd.read_csv(csv_path)
@@ -18,36 +15,39 @@ def load_data():
 
 @task
 def preprocess(df):
-    """Preprocess the data (scaling and feature engineering)."""
     X, y, scaler = preprocess_data(df)
     return X, y, scaler
 
 @task
 def train_model(X, y):
-    """Train a Ridge regression model."""
     model = Ridge(alpha=1.0)
     model.fit(X, y)
-    save_model(model, "Ridge_Model")
+    save_model(model, "Ridge_Model")  # Save the model in MLflow
     return model
 
 @task
 def save_scaler(scaler):
-    """Save the fitted scaler object."""
     save_object(scaler, "scaler.pkl")
 
+@task
+def save_model_locally(model):
+    # Save the model locally in src/web_service/local_objects
+    import pickle
+    model_path = "src/web_service/local_objects/Ridge_Model.pkl"
+    with open(model_path, "wb") as f:
+        pickle.dump(model, f)
+    print(f"Model saved to {model_path}")
 
-# Now we define the flow explicitly
 def create_flow():
-    # Create a flow object
+    # Instead of 'with Flow', just define the flow here
     flow = Flow("Train Model Flow")
-    
-    # Add tasks to the flow
     df = load_data()
     X, y, scaler = preprocess(df)
     model = train_model(X, y)
     save_scaler(scaler)
-    
-    # Return the flow object
+    save_model_locally(model)
+    # Set task dependencies
+    flow.set_dependencies(task=model, upstream_tasks=[df, X])
     return flow
 
 if __name__ == "__main__":

@@ -34,6 +34,7 @@ def load_model(model_name, file_path='src/web_service/local_objects'):
 def save_object(obj, filename, file_path='src/web_service/local_objects'):
     """
     Save an object like a scaler to a file using pickle.
+    
     Args:
         obj: The object to be saved.
         filename (str): The name of the file to save the object.
@@ -46,6 +47,7 @@ def save_object(obj, filename, file_path='src/web_service/local_objects'):
 def load_object(filename, file_path='src/web_service/local_objects'):
     """
     Load an object from a file using pickle.
+    
     Args:
         filename (str): The name of the file to load the object from.
         file_path (str): The local directory where the object is saved.

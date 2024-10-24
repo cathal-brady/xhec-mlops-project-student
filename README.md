@@ -1,8 +1,20 @@
 # Abalone Age Prediction - MLOps Project
 
+## Table of Contents
+1. [Project Context](#1-project-context)
+2. [Participants](#2-participants)
+3. [Steps to Recreate the Python Environment](#3-steps-to-recreate-the-python-environment)
+    - [Prerequisites](#prerequisites)
+    - [Clone the Repository](#1-clone-the-repository)
+    - [Set Up the Virtual Environment](#2-set-up-the-virtual-environment)
+    - [Install Dependencies](#3-install-dependencies)
+    - [Set Up Pre-commit Hooks](#4-set-up-pre-commit-hooks)
+4. [Instructions to Run the Code](#4-instructions-to-run-the-code)
+5. [Additional Notes](#additional-notes)
+
 ## 1. Project Context
 
-This is a group project for MLOps class based on this repository (https://github.com/artefactory/xhec-mlops-project-student) and this Kaggle challenge (https://www.kaggle.com/datasets/rodolfomendes/abalone-dataset). This repository's objective is the industrialization of  an Abalone Age Prediction model (please find data on Kaggle).
+This is a group project for MLOps class based on [this repository](https://github.com/artefactory/xhec-mlops-project-student) and [this Kaggle challenge](https://www.kaggle.com/datasets/rodolfomendes/abalone-dataset). The objective of this repository is the industrialization of an Abalone Age Prediction model(please find data on Kaggle).
 
 The Abalone age prediction involves predicting the age of abalone based on physical measurements such as shell weight, diameter, and others. The actual age of an abalone is determined by counting rings on its shell, a tedious and time-consuming process. The model's goal is to replace this manual task by predicting the "Rings" column using other available measurements.
 
@@ -10,14 +22,14 @@ This repository contains all the components required to automate the machine lea
 
 ### Key Features of the Repository:
 - **Model Training and Inference Workflow**: We use Prefect to manage the workflows for both training the model and making predictions. The workflows are modularized into separate tasks and flows, making it easier to manage and maintain.
-- **Automated Retraining**: A Prefect deployment is set up to regularly retrain the model, ensuring it stays up to date as new data becomes available.
+- **Automated Retraining**: A Prefect deployment is set up to regularly retrain the model, ensuring it stays up to date as new data becomes available.g
 - **API Deployment**: The repository contains an API built using FastAPI that allows users to submit new data and receive real-time age predictions for abalone. The API is integrated with Pydantic for input validation.
 - **Pre-commit Hooks for Code Quality**: The repository uses `black`, `isort`, and `ruff` to ensure clean, consistent code formatting and linting, enforced by pre-commit hooks.
 
-By following the instructions in this README, you'll be able to:
-- Recreate the development environment used for the project.
-- Train and retrain the model using Prefect.
-- Deploy an API that serves predictions based on new input data.
+### By following the instructions in this README, you'll be able to:
+- **Recreate the development environment** used for the project.
+- **Train and retrain the model using Prefect**.
+- **Deploy an API** that serves predictions based on new input data.
 - Ensure that the code adheres to the coding standards and practices set by the project.
 
 ---
@@ -110,6 +122,13 @@ This ensures that every time you make a commit, code formatters and linters (lik
 ---
 
 ## Additional notes
+
+- If any dependencies are updated in the requirements.in or requirements-dev.in files, make sure to regenerate the .txt files using pip-compile:
+
+```bash
+pip-compile requirements.in
+pip-compile requirements-dev.in
+```
 
 - If any dependencies are updated in the requirements.in or requirements-dev.in files, make sure to regenerate the .txt files using pip-compile:
 

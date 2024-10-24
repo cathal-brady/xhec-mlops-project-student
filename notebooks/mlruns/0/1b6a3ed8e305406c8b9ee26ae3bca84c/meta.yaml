@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/HEC/Course%205%20-%20MLOPS%20with%20Artefact/Project/xhec-mlops-project-student/notebooks/mlruns/0/1b6a3ed8e305406c8b9ee26ae3bca84c/artifacts
+end_time: 1729761353177
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 1b6a3ed8e305406c8b9ee26ae3bca84c
+run_name: defiant-pig-241
+run_uuid: 1b6a3ed8e305406c8b9ee26ae3bca84c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1729761345768
+status: 3
+tags: []
+user_id: user

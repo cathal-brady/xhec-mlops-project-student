@@ -1,3 +1,5 @@
+# Abalone Age Prediction - MLOps Project
+
 ## 1. Project Context
 
 This is a group project for MLOps class based on this repository (https://github.com/artefactory/xhec-mlops-project-student) and this Kaggle challenge (https://www.kaggle.com/datasets/rodolfomendes/abalone-dataset). This repository's objective is the industrialization of  an Abalone Age Prediction model (please find data on Kaggle).
@@ -108,3 +110,10 @@ This ensures that every time you make a commit, code formatters and linters (lik
 ---
 
 ## Additional notes
+
+- If any dependencies are updated in the requirements.in or requirements-dev.in files, make sure to regenerate the .txt files using pip-compile:
+
+```bash
+pip-compile requirements.in
+pip-compile requirements-dev.in
+```

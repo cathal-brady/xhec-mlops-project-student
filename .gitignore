@@ -73,6 +73,7 @@ projectmlops/
 .dmypy.json
 dmypy.json
 abalone-mlops
+abaloneenv
 
 # Pyre type checker
 .pyre/

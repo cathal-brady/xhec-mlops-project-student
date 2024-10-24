@@ -1,70 +1,110 @@
-<<<<<<< HEAD
-=======
-# Setting up the virtual environment and installing dependencies
+## 1. Project Context
 
-## Overview
-This branch concerns building the virtual environment and installing dependencies, as well as ensuring later code will meet some code quality conventions.
+This is a group project for MLOps class based on this repository (https://github.com/artefactory/xhec-mlops-project-student) and this Kaggle challenge (https://www.kaggle.com/datasets/rodolfomendes/abalone-dataset). This repository's objective is the industrialization of  an Abalone Age Prediction model (please find data on Kaggle).
 
-## Prerequisites
-To get started, you will need the following installed on your machine:
+The Abalone age prediction involves predicting the age of abalone based on physical measurements such as shell weight, diameter, and others. The actual age of an abalone is determined by counting rings on its shell, a tedious and time-consuming process. The model's goal is to replace this manual task by predicting the "Rings" column using other available measurements.
+
+This repository contains all the components required to automate the machine learning pipeline for training, inference, and deployment of the Abalone age prediction model.
+
+### Key Features of the Repository:
+- **Model Training and Inference Workflow**: We use Prefect to manage the workflows for both training the model and making predictions. The workflows are modularized into separate tasks and flows, making it easier to manage and maintain.
+- **Automated Retraining**: A Prefect deployment is set up to regularly retrain the model, ensuring it stays up to date as new data becomes available.
+- **API Deployment**: The repository contains an API built using FastAPI that allows users to submit new data and receive real-time age predictions for abalone. The API is integrated with Pydantic for input validation.
+- **Pre-commit Hooks for Code Quality**: The repository uses `black`, `isort`, and `ruff` to ensure clean, consistent code formatting and linting, enforced by pre-commit hooks.
+
+By following the instructions in this README, you'll be able to:
+- Recreate the development environment used for the project.
+- Train and retrain the model using Prefect.
+- Deploy an API that serves predictions based on new input data.
+- Ensure that the code adheres to the coding standards and practices set by the project.
+
+---
+
+## 2. Participants
+
+- **Hadrien Strichard** - [hadrienstrichard](https://github.com/hadrienstrichard)
+- **Hocine Zidi** - [Hozidi](https://github.com/Hozidi)
+- **Jean-Eudes Agbre** - [JokyHub](https://github.com/JokyHub)
+- **Tarek Massoud** - [tarekmassoud](https://github.com/tarekmassoud)
+- **Cathal Brady** - [cathal-brady](https://github.com/cathal-brady)
+
+---
+
+## 3. Steps to Recreate the Python Environment
+
+### Prerequisites
+
+Ensure you have the following installed on your machine:
 
 [![Python 3.11](https://img.shields.io/badge/Python-3.11-blue)](https://www.python.org/downloads/release/python-3110/)
 [![Git](https://img.shields.io/badge/Git-Installed-green)](https://git-scm.com/downloads)
 
-## Setup Instructions
+You'll also need either `virtualenv` or `conda` installed to create a virtual environment.
 
 ### 1. Clone the Repository
-Begin by cloning the repository to your local machine:
+
+Start by cloning the repository to your local machine:
 
 ```bash
 git clone https://github.com/cathal-brady/xhec-mlops-project-student.git
-cd path/to/wherever/you/cloned/this/repo
+cd xhec-mlops-project-student
 ```
 
-### 2. Set up a virtual environment
+### 2. Set Up the Virtual Environment
 
-We did this using virtualenv
-If you dont have virtualenv you can install it as below
+**Using Conda**
+
+If you have Conda installed, you can use the environment.yml file to recreate the environment:
+
 ```bash
-# Install virtualenv package
-$ pip install virtualenv
+# Create the environment using conda
+conda env create --file environment.yml
+
+# Activate the environment
+conda activate abaloneenv
+```
+
+**Using Virtualenv**
+
+If you prefer using virtualenv, follow these steps:
+
+```bash
+# Install virtualenv if you don't have it already
+pip install virtualenv
 
 # Create the virtual environment
-$ virtualenv abaloneenv --python=python3.11
+virtualenv abaloneenv --python=python3.11
+
+# Activate the environment
+source abaloneenv/bin/activate  # For MacOS/Linux
+abaloneenv\Scripts\activate     # For Windows
 ```
 
-If you have miniconda installed you can also do it using conda
+### 3. Install dependencies
+
+Once the environment is activated, install the dependencies:
+
 ```bash
-# Create env
-$ cd <this repository>
-$ conda env create --file environment.yml
+pip install -r requirements.txt
+```
+If you need to install development tools like black, flake8, and isort, run:
 
-# Activate your environment:
-$ conda activate abaloneenv
+```bash
+pip install -r requirements-dev.txt
 ```
 
-This is a virtual environment specifically for our abalone prediction
+To ensure code quality and formatting before each commit, install the pre-commit hooks:
 
-activate the environment using
-
-<code>abaloneenv\Scripts\activate</code> (Windows)
-<code>source abaloneenv/bin/activate</code> (on MacOS/Linux)
-
-Install the dependencies we have laid out in the requirements file
-<code>pip install -r requirements.txt</code>
-
-Configure pre-commit hooks by running
+```bash
 pip install pre-commit
 pre-commit install
+```
+This ensures that every time you make a commit, code formatters and linters (like black, isort, and flake8) will be applied automatically.
 
+---
 
-This ensures All code in this repository must adhere to the following conventions:
+## 4. Instructions to Run the Code
 
-    flake8: For linting and enforcing coding style.
-    isort: For sorting imports to keep code organized.
-    black: For automatic code formatting to maintain cons
+---
 
-Which are laid out in our requirements dev-in files (see <code>requirements-dev.in</code> for a summary)
-
-By following these steps, you will have a well-configured development environment ready for contributing to this project. If you encounter any issues or have questions, please refer to the documentation for the respective tools or reach out for assistance.
->>>>>>> a360a0c376f42ccaa5e327fc1702c38cff725ad8
+## Additional notes

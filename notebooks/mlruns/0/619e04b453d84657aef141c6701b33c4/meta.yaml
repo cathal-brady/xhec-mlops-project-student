@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/HEC/Course%205%20-%20MLOPS%20with%20Artefact/Project/xhec-mlops-project-student/notebooks/mlruns/0/619e04b453d84657aef141c6701b33c4/artifacts
+end_time: 1729775101543
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 619e04b453d84657aef141c6701b33c4
+run_name: Ridge Regressor Experiment
+run_uuid: 619e04b453d84657aef141c6701b33c4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1729775095809
+status: 3
+tags: []
+user_id: user

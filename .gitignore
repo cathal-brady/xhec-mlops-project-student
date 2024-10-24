@@ -87,6 +87,3 @@ secrets/*
 
 # Mac files
 .DS_Store
-
-# MLflow artifacts
-mlruns/

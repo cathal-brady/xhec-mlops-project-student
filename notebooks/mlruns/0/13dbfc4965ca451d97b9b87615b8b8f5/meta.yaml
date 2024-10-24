@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/HEC/Course%205%20-%20MLOPS%20with%20Artefact/Project/xhec-mlops-project-student/notebooks/mlruns/0/13dbfc4965ca451d97b9b87615b8b8f5/artifacts
+end_time: 1729761625284
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 13dbfc4965ca451d97b9b87615b8b8f5
+run_name: sneaky-bug-807
+run_uuid: 13dbfc4965ca451d97b9b87615b8b8f5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1729761618963
+status: 3
+tags: []
+user_id: user

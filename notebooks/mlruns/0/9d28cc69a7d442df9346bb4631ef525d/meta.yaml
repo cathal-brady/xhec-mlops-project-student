@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/HEC/Course%205%20-%20MLOPS%20with%20Artefact/Project/xhec-mlops-project-student/notebooks/mlruns/0/9d28cc69a7d442df9346bb4631ef525d/artifacts
+end_time: 1729775067428
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 9d28cc69a7d442df9346bb4631ef525d
+run_name: LGBM Regressor Experiment
+run_uuid: 9d28cc69a7d442df9346bb4631ef525d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1729775059220
+status: 3
+tags: []
+user_id: user

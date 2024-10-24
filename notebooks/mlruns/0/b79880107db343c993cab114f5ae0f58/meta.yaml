@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/HEC/Course%205%20-%20MLOPS%20with%20Artefact/Project/xhec-mlops-project-student/notebooks/mlruns/0/b79880107db343c993cab114f5ae0f58/artifacts
+end_time: 1729775095727
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b79880107db343c993cab114f5ae0f58
+run_name: Extra Trees Regressor Experiment
+run_uuid: b79880107db343c993cab114f5ae0f58
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1729775087005
+status: 3
+tags: []
+user_id: user

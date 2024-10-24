@@ -17,5 +17,5 @@ dependencies:
   - xgboost=1.7.3
   - pip:
       - mlflow==2.6.0
-      - kagglehub==1.0.0
+      - kagglehub==0.3.3
       - piptools

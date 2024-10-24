@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/35387/Documents/HEC/MLOPS/xhec-mlops-project-student/src/modelling/mlruns/0/a66f5debd421463085c30b38bdfd91c2/artifacts
+end_time: 1729791237951
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a66f5debd421463085c30b38bdfd91c2
+run_name: adventurous-worm-418
+run_uuid: a66f5debd421463085c30b38bdfd91c2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1729791233530
+status: 3
+tags: []
+user_id: '35387'

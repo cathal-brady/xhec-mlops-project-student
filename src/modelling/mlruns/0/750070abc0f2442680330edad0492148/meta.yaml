@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/35387/Documents/HEC/MLOPS/xhec-mlops-project-student/src/modelling/mlruns/0/750070abc0f2442680330edad0492148/artifacts
+end_time: 1729789422034
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 750070abc0f2442680330edad0492148
+run_name: fun-snail-88
+run_uuid: 750070abc0f2442680330edad0492148
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1729789417763
+status: 3
+tags: []
+user_id: '35387'

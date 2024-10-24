@@ -75,7 +75,7 @@ If you have Conda installed, you can use the environment.yml file to recreate th
 conda env create --file environment.yml
 
 # Activate the environment
-conda activate abaloneenv
+conda activate abalone-mlops
 ```
 
 **Using Virtualenv**
@@ -101,6 +101,7 @@ Once the environment is activated, install the dependencies:
 ```bash
 pip install -r requirements.txt
 ```
+
 If you need to install development tools like black, flake8, and isort, run:
 
 ```bash
@@ -119,6 +120,138 @@ This ensures that every time you make a commit, code formatters and linters (lik
 
 ## 4. Instructions to Run the Code
 
+### 1. Train the model
+
+To train the model using Prefect, follow these steps after :
+
+```bash
+cd src/modelling
+python main.py
+```
+
+This will download the data from Kaggle, preprocess it, train the model using the Ridge regression algorithm, and save the model and the scaler for future predictions.
+
+### 2. Run Predictions
+
+To make predictions with new data, execute the following:
+
+```bash
+cd src/modelling #if not already in this directory
+python predicting.py
+```
+
+This will load the trained model and scaler and use them to predict the age of abalone based on new input data.
+
+### 3. Schedule Regular Retraining with Prefect
+We have set up a Prefect deployment to retrain the model regularly. To start the worker that will handle the scheduled retraining jobs:
+
+#### 1. Start the Prefect Worker:
+Open a new terminal and run:
+
+```bash
+prefect worker start --pool 'MLOps'
+```
+
+This worker will pick up scheduled jobs for model retraining.
+
+#### 2. Run the Prefect UI:
+To monitor flow runs, visualize tasks, and check logs, you can start the Prefect UI:
+
+```bash
+prefect orion start
+```
+
+Then, open your browser and go to http://127.0.0.1:4200 to see the Prefect dashboard.
+
+#### 3. Trigger a Manual Run (Optional):
+To manually trigger a flow run for retraining, use the following command:
+
+```bash
+prefect deployment run 'main/default'
+```
+
+This command will execute the retraining flow immediately.
+
+---
+#### 4. FastAPI API Documentation
+The FastAPI API is used to serve predictions for abalone age based on physical characteristics. The API accepts JSON input, processes the data using the trained machine learning model, and returns a predicted age.
+
+##### 4.1 API Setup
+###### Step 1: Running FastAPI Locally
+To run the API locally:
+
+```bash
+uvicorn src.web_service.main:app --reload
+```
+
+This will start the FastAPI server on http://127.0.0.1:8000.
+
+###### Step 2: API Endpoints
+Root Endpoint
+
+URL: /
+Method: GET
+Description: Returns a welcome message confirming the API is running.
+Prediction Endpoint
+
+URL: /predict
+Method: POST
+Description: Accepts JSON input and returns the predicted age.
+Input Format:
+
+```bash
+{
+  "length": 0.62,
+  "diameter": 0.48,
+  "height": 0.14,
+  "whole_weight": 0.85,
+  "shucked_weight": 0.36,
+  "viscera_weight": 0.29,
+  "shell_weight": 0.22,
+  "sex": "M"  
+}
+```
+
+Output Example:
+
+```bash
+{
+  "predicted_age": 10
+}
+```
+
+###### Step 3: Accessing API Documentation
+FastAPI automatically generates interactive API documentation. You can explore the API at:
+
+- Swagger UI: http://127.0.0.1:8000/docs
+- OpenAPI schema: http://127.0.0.1:8000/openapi.json
+This allows you to test the API directly in your browser.
+
+##### 4.2 Dockerizing FastAPI
+###### Step 1: Build Docker Image
+To containerize the FastAPI service:
+
+Ensure Dockerfile.app is correctly set up.
+Build the Docker image:
+
+```bash
+docker build -t my_mlflow_fastapi_project -f Dockerfile.app .
+```
+
+###### Step 2: Run Docker Container
+Run the container with:
+
+```bash
+docker run -p 8000:8000 my_mlflow_fastapi_project
+```
+
+This will expose the API at http://localhost:8000.
+
+###### Step 3: Access the API
+Once the container is running, you can access the API at:
+
+- http://localhost:8000
+- Interactive docs at: http://localhost:8000/docs
 ---
 
 ## Additional notes
@@ -130,9 +263,8 @@ pip-compile requirements.in
 pip-compile requirements-dev.in
 ```
 
-- If any dependencies are updated in the requirements.in or requirements-dev.in files, make sure to regenerate the .txt files using pip-compile:
-
+- You can monitor the flow executions, schedules, and deployments through the Prefect UI as mentioned above.
+- To redeploy the model or make updates, you can use the deployment configuration saved in the prefect.yaml file for faster deployments
 ```bash
-pip-compile requirements.in
-pip-compile requirements-dev.in
+prefect deploy -n default
 ```

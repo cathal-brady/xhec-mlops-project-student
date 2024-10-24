@@ -1,0 +1,33 @@
+# deployment.yaml
+name: Scheduled Retraining
+flow_name: Training Flow
+schedule:
+  cron: 0 0 * * *    # Every day at midnight
+entrypoint: main.py:main    # Path to your flow entrypoint
+work_pool:
+  name: default-agent-pool
+deployments:
+- name: default
+  version:
+  tags: []
+  concurrency_limit:
+  description: "Train a model using the data downloaded from Kaggle\nand save the
+    model."
+  entrypoint: src/modelling/main.py:main
+  parameters: {}
+  work_pool:
+    name: MLOps
+    work_queue_name:
+    job_variables: {}
+  enforce_parameter_schema: true
+  schedules:
+  - cron: 0 0 * * *
+    timezone: Europe/Paris
+    day_or: true
+    active: true
+    max_active_runs:
+    catchup: false
+  pull:
+  - prefect.deployments.steps.git_clone:
+      repository: https://github.com/cathal-brady/xhec-mlops-project-student.git
+      branch: 3/use_prefect

@@ -10,6 +10,8 @@ alembic==1.13.3
     # via
     #   mlflow
     #   prefect
+annotated-types==0.7.0
+    # via pydantic
 anyio==4.6.2.post1
     # via
     #   httpx
@@ -91,8 +93,10 @@ entrypoints==0.4
     # via mlflow
 executing==2.1.0
     # via stack-data
-fastapi==0.115.3
-    # via prefect
+fastapi==0.101.1
+    # via
+    #   -r .\requirements.in
+    #   prefect
 flask==2.3.3
     # via mlflow
 fonttools==4.54.1
@@ -257,11 +261,13 @@ pyasn1-modules==0.4.1
     # via google-auth
 pycparser==2.22
     # via cffi
-pydantic==1.10.12
+pydantic==2.7.0
     # via
     #   -r .\requirements.in
     #   fastapi
     #   prefect
+pydantic-core==2.18.1
+    # via pydantic
 pygments==2.18.0
     # via
     #   ipython
@@ -372,7 +378,7 @@ sqlparse==0.5.1
     # via mlflow
 stack-data==0.6.3
     # via ipython
-starlette==0.41.0
+starlette==0.27.0
     # via fastapi
 tabulate==0.9.0
     # via databricks-cli
@@ -408,6 +414,7 @@ typing-extensions==4.12.2
     #   ipython
     #   prefect
     #   pydantic
+    #   pydantic-core
     #   typer
 tzdata==2024.2
     # via
